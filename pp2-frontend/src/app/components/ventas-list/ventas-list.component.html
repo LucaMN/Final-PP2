@@ -1,0 +1,17 @@
+<div class="container mt-4">
+  <h1 class="title text-center mb-4">Listado de Ventas</h1><!-- Título centrado en la parte superior de la tabla -->
+  <table class="table table-bordered table-hover text-center">
+    <thead class="table-dark">
+      <tr>
+        <th>Mes</th> <!-- Columna para los meses -->
+        <th *ngFor="let sucursal of sucursales">{{ sucursal }}</th>  <!-- Columnas para las sucursales dinámicas -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let mes of meses"><!-- Fila para cada mes -->
+        <td>{{ mes }}</td>
+        <td *ngFor="let sucursal of sucursales">{{ dataTable[sucursal][mes] || 0 }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

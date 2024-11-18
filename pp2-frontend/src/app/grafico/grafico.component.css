@@ -1,0 +1,7 @@
+/* Asegúrate de que el canvas no esté oculto */
+canvas {
+    display: block; /* Asegúrate de que se muestre */
+    width: 100%; /* O el ancho que necesites */
+    height: 400px; /* Ajusta la altura a tu preferencia */
+  }
+  

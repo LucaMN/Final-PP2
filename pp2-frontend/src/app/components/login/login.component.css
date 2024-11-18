@@ -1,0 +1,10 @@
+/* src/app/components/login/login.component.css */
+form {
+    width: 100%;
+    max-width: 400px; /* Limita el tamaño del formulario */
+  }
+  
+  .d-flex {
+    background-color: #f8f9fa; /* Fondo suave para el contenedor */
+  }
+  

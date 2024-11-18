@@ -1,0 +1,20 @@
+<div class="container mt-4">
+    <h1 class="title text-center mb-4">Listado de Sucursales</h1>
+    <table class="table table-bordered table-hover text-center">
+      <thead class="table-dark">
+        <tr>
+          <th>Nombre</th>
+          <th>Dirección</th>
+          <th>Cantidad de Empleados</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let sucursal of sucursales">
+          <td>{{ sucursal.nombre }}</td>
+          <td>{{ sucursal.direccion }}</td>
+          <td>{{ sucursal.empleados }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

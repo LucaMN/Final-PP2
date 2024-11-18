@@ -1,0 +1,109 @@
+<div class="container mt-4">
+  <div class="row">
+    <!-- Columna para el formulario -->
+    <div class="col-md-6">
+      <!-- Título para la modificación del monto -->
+      <h2 class="title text-center mb-4">Modificar Monto de Venta</h2>
+      
+      <div class="mb-3">
+        <label for="id_sucursal" class="form-label">Sucursal:</label>
+        <input
+  type="number"
+  id="id_sucursal"
+  [(ngModel)]="id_sucursal"
+  
+  class="form-control"
+  placeholder="Ingrese el ID de la sucursal"
+  [min]="1"
+  required
+  #idSucursal="ngModel"
+/>
+        <div *ngIf="idSucursal.invalid && idSucursal.touched" class="text-danger">
+          El ID de la sucursal debe ser mayor a 0.
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="id_mes" class="form-label">Mes:</label>
+        <input
+          type="number"
+          id="id_mes"
+          [(ngModel)]="id_mes"
+          class="form-control"
+          placeholder="Ingrese el número del mes"
+          [min]="1"
+          [max]="12"
+          required
+          #idMes="ngModel"
+        />
+        <div *ngIf="idMes.invalid && idMes.touched" class="text-danger">
+          El mes debe estar entre 1 y 12.
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="monto" class="form-label">Nuevo Monto:</label>
+        <input
+          type="number"
+          id="monto"
+          [(ngModel)]="monto"
+          class="form-control"
+          placeholder="Ingrese el nuevo monto"
+          [min]="0"
+          required
+          #montoField="ngModel"
+        />
+        <div *ngIf="montoField.invalid && montoField.touched" class="text-danger">
+          El monto no puede ser negativo.
+        </div>
+      </div>
+
+      <button
+  (click)="actualizarMonto()"
+  class="btn btn-success w-100"
+  [disabled]="idSucursal.invalid || idMes.invalid || montoField.invalid || !sucursalValida"
+>
+  Actualizar Monto
+</button>
+
+
+
+      <!-- Modal -->
+      <div class="modal fade" #mensajeModal tabindex="-1" aria-labelledby="mensajeModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="mensajeModalLabel">Mensaje</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              {{ mensaje }}
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Columna para la tabla -->
+    <div class="col-md-6">
+      <!-- Título para el listado de ventas -->
+      <table class="table table-bordered table-hover table-sm text-center">
+        <thead class="table-dark">
+          <tr>
+            <th>Mes</th>
+            <th *ngFor="let sucursal of sucursales">{{ sucursal }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let mes of meses">
+            <td>{{ mes }}</td>
+            <td *ngFor="let sucursal of sucursales">{{ dataTable[sucursal][mes] || 0 }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

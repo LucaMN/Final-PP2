@@ -1,0 +1,10 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+h1.title, h2.title {
+    font-family: 'Roboto', sans-serif; /* Elige una fuente que te guste */
+    font-weight: 600;
+    color: #333;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }

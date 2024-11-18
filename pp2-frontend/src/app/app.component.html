@@ -1,0 +1,38 @@
+<!-- src/app/app.component.html -->
+<nav *ngIf="showNav" class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="btn btn-outline-primary me-2" routerLink="/ventas">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="btn btn-outline-primary me-2" routerLink="/sucursales">Listar Sucursales</a>
+        </li>
+        <li class="nav-item">
+          <a class="btn btn-outline-primary me-2" routerLink="/clientes">Listar Clientes</a>
+        </li>
+        <li class="nav-item">
+          <a class="btn btn-outline-primary me-2" routerLink="/grafico">Gráfico de Lineas</a>
+        </li>
+        <li class="nav-item">
+          <a class="btn btn-outline-primary me-2" routerLink="/grafico-barras">Gráfico de Barras</a>
+        </li>
+        <li class="nav-item">
+          <a class="btn btn-outline-primary me-2" routerLink="/grafico-barras-apiladas">Gráfico de Barras Apiladas</a>
+        </li>
+        <li class="nav-item">
+          <a class="btn btn-outline-primary me-2" routerLink="ventas/editar">Editar</a>
+        </li>
+      </ul>
+      <!-- Botón de Logout visible solo si el usuario está autenticado -->
+      <button *ngIf="authService.isAuthenticated" class="btn btn-outline-danger" (click)="onLogout()">Logout</button>
+    </div>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>

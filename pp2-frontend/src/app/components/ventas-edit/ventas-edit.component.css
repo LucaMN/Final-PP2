@@ -1,0 +1,9 @@
+table {
+    width: 100%; /* Ajusta el tamaño de la tabla en general */
+  }
+  
+  
+  table th, table td {
+    height: 1%; /* Ajusta la altura de las filas */
+    vertical-align: middle; /* Centra el contenido verticalmente */
+  }

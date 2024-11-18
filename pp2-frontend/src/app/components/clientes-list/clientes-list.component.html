@@ -1,0 +1,25 @@
+<div class="container mt-4">
+    <h1 class="title text-center mb-4">Listado de Clientes</h1>
+    <table class="table table-bordered table-hover text-center">
+      <thead class="table-dark">
+        <tr>
+          <th>Apellido</th>
+          <th>Nombre</th>
+          <th>Saldo</th>
+          <th>Estatus</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cliente of clientes">
+          <td>{{ cliente.apellido }}</td>
+          <td>{{ cliente.nombre }}</td>
+          <td>{{ cliente.saldo }}</td>
+          <td>
+            <ng-container *ngIf="cliente.status === 1">&#10003;</ng-container>
+            <ng-container *ngIf="cliente.status === 0"></ng-container>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
